@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Sanjeev Shrestha — Developer{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <p class="eyebrow mono">Developer · Nepal</p>
+  <h1 class="hero-title">Sanjeev<br>Shrestha</h1>
+  <p class="hero-lede">I build robust, secure web applications with Python.
+     This site is one of them — including the AI assistant in the corner.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{% url 'portfolio:projects' %}">View projects</a>
+    <a class="btn btn-ghost" href="{% url 'portfolio:about' %}">About me</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <a class="section-link mono" href="{% url 'portfolio:projects' %}">all projects &rarr;</a>
+  </div>
+  <div class="card-grid">
+    {% for p in projects %}
+    <article class="card">
+      <h3 class="card-title">{{ p.title }}</h3>
+      <p class="card-summary">{{ p.summary }}</p>
+      <ul class="tags">
+        {% for tag in p.tags %}<li class="mono">{{ tag }}</li>{% endfor %}
+      </ul>
+      <a class="card-link mono" href="{{ p.url }}">open &rarr;</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

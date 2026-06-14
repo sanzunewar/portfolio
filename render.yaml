@@ -1,0 +1,23 @@
+# Render Blueprint — infrastructure as code.
+# Render reads this on every push to auto-build and deploy.
+services:
+  - type: web
+    name: portfolio
+    runtime: python
+    plan: free                # upgrade to "starter" ($7/mo) to remove cold starts
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn config.wsgi:application"
+    autoDeploy: true          # every push to the connected branch redeploys
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true   # Render generates a strong secret for you
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "sanjeevshrestha.info.np,www.sanjeevshrestha.info.np"
+      - key: DJANGO_CSRF_TRUSTED_ORIGINS
+        value: "https://sanjeevshrestha.info.np,https://www.sanjeevshrestha.info.np"
+      - key: AI_API_KEY
+        sync: false           # set this secret in the Render dashboard, not in git
+      - key: AI_MODEL
+        value: "claude-haiku-4-5-20251001"
