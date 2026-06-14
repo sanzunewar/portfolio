@@ -27,25 +27,20 @@ SYSTEM_PROMPT = (
 
 
 def call_ai_model(message: str) -> str:
-    """Call the AI provider and return the reply text.
+    """Call Google Gemini and return the reply text."""
+    from google import genai
+    from google.genai import types
 
-    Default implementation uses the Anthropic API. To use a different
-    provider, rewrite only this function.
-    """
-    # Imported lazily so the app still boots if the SDK isn't installed yet.
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=settings.AI_API_KEY)
-    response = client.messages.create(
+    client = genai.Client(api_key=settings.AI_API_KEY)
+    response = client.models.generate_content(
         model=settings.AI_MODEL,
-        max_tokens=400,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": message}],
+        contents=message,
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+            max_output_tokens=400,
+        ),
     )
-    # The response content is a list of blocks; collect the text blocks.
-    return "".join(
-        block.text for block in response.content if block.type == "text"
-    ).strip()
+    return (response.text or "").strip()
 
 
 @require_POST
