@@ -4,13 +4,16 @@
 
 {% block content %}
 <section class="hero">
-  <p class="eyebrow mono">Developer · Nepal</p>
-  <h1 class="hero-title">Sanjeev<br>Shrestha</h1>
-  <p class="hero-lede">I build robust, secure web applications with Python.
-     This site is one of them — including the AI assistant in the corner.</p>
-  <div class="hero-actions">
-    <a class="btn btn-primary" href="{% url 'portfolio:projects' %}">View projects</a>
-    <a class="btn btn-ghost" href="{% url 'portfolio:about' %}">About me</a>
+  <canvas class="hero-net" id="hero-net" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <p class="eyebrow mono">Network Engineer · Applied IT</p>
+    <h1 class="hero-title">Sanjeev<br>Shrestha</h1>
+    <p class="hero-lede">I design and run reliable network and IT infrastructure —
+       across ISP, banking, and software.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{% url 'portfolio:projects' %}">View work</a>
+      <a class="btn btn-ghost" href="{% url 'portfolio:about' %}">About me</a>
+    </div>
   </div>
 </section>
 
