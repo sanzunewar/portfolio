@@ -17,8 +17,7 @@
       <ul class="tags">
         {% for tag in p.tags %}<li class="mono">{{ tag }}</li>{% endfor %}
       </ul>
-      <a class="card-link mono" href="{{ p.url }}">open &rarr;</a>
-    </article>
+      <span class="card-link mono">{{ p.category }}</span>    </article>
     {% endfor %}
   </div>
 </section>

@@ -4,22 +4,38 @@ from django.shortcuts import render
 # CMS. Hardcoded here so the starter renders immediately with no migrations.
 PROJECTS = [
     {
-        "title": "Project One",
-        "summary": "A short description of what this project does and why it matters.",
-        "tags": ["Python", "Django", "PostgreSQL"],
-        "url": "https://github.com/yourname/project-one",
+        "title": "Enterprise Network Design & Deployment",
+        "category": "Network Infrastructure",
+        "summary": "Designed and deployed a small enterprise network — VLAN "
+                   "segmentation, switching, and secure, firewalled internet access "
+                   "built for reliable day-to-day operations.",
+        "tags": ["Networking", "VLANs", "Switching", "Firewall"],
     },
     {
-        "title": "Project Two",
-        "summary": "Another project. Replace these with your real work.",
-        "tags": ["FastAPI", "React", "Docker"],
-        "url": "https://github.com/yourname/project-two",
+        "title": "Cinema Hall Network & POS Setup",
+        "category": "Network + Systems",
+        "summary": "Built the full network for a cinema hall: deployed and configured "
+                   "POS machines and their software, stood up a localised on-site "
+                   "server, and secured the environment behind a firewall.",
+        "tags": ["POS Systems", "Local Server", "Firewall", "Networking"],
     },
     {
-        "title": "Project Three",
-        "summary": "Showcase the range of what you build here.",
-        "tags": ["Data", "ML", "Cloud"],
-        "url": "https://github.com/yourname/project-three",
+        "title": "Banking Service Deployment & Server Hardening",
+        "category": "Banking Systems",
+        "summary": "Deployed and integrated banking service products to industry "
+                   "standards — built and hardened application, backup, and test "
+                   "servers, configured firewalls and user access, and handled "
+                   "deployment and ongoing troubleshooting.",
+        "tags": ["Banking", "Server Hardening", "Firewall", "Backup & DR", "Linux"],
+    },
+    {
+        "title": "ISP Reseller Network Provisioning",
+        "category": "ISP / FTTH",
+        "summary": "Provisioned ISP reseller networks end to end — configured OLTs, "
+                   "switches, and routers so connectivity flows correctly through "
+                   "reseller infrastructure, and restored outages fast by activating "
+                   "alternate routes to bring service back.",
+        "tags": ["ISP", "OLT", "Routing", "Switching", "Troubleshooting"],
     },
 ]
 
